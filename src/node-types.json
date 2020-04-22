@@ -1,0 +1,1804 @@
+[
+  {
+    "type": "IDENT",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "NUMBER",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "arg",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "AS",
+          "named": true
+        },
+        {
+          "type": "AT",
+          "named": true
+        },
+        {
+          "type": "BW_AND",
+          "named": true
+        },
+        {
+          "type": "BW_NOT",
+          "named": true
+        },
+        {
+          "type": "BW_OR",
+          "named": true
+        },
+        {
+          "type": "BW_SHIFT_L",
+          "named": true
+        },
+        {
+          "type": "BW_SHIFT_R",
+          "named": true
+        },
+        {
+          "type": "BW_SHIFT_R_UNSIGNED",
+          "named": true
+        },
+        {
+          "type": "BW_XOR",
+          "named": true
+        },
+        {
+          "type": "CARET",
+          "named": true
+        },
+        {
+          "type": "CAT",
+          "named": true
+        },
+        {
+          "type": "COLON",
+          "named": true
+        },
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "COUNT",
+          "named": true
+        },
+        {
+          "type": "DOLLAR",
+          "named": true
+        },
+        {
+          "type": "FLOAT",
+          "named": true
+        },
+        {
+          "type": "FTOI",
+          "named": true
+        },
+        {
+          "type": "FTOU",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "ITOF",
+          "named": true
+        },
+        {
+          "type": "ITOU",
+          "named": true
+        },
+        {
+          "type": "LBRACE",
+          "named": true
+        },
+        {
+          "type": "LBRACKET",
+          "named": true
+        },
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "L_AND",
+          "named": true
+        },
+        {
+          "type": "L_NOT",
+          "named": true
+        },
+        {
+          "type": "L_OR",
+          "named": true
+        },
+        {
+          "type": "MAX",
+          "named": true
+        },
+        {
+          "type": "MEAN",
+          "named": true
+        },
+        {
+          "type": "MIN",
+          "named": true
+        },
+        {
+          "type": "MINUS",
+          "named": true
+        },
+        {
+          "type": "NIL",
+          "named": true
+        },
+        {
+          "type": "NUMBER",
+          "named": true
+        },
+        {
+          "type": "ORD",
+          "named": true
+        },
+        {
+          "type": "PERCENT",
+          "named": true
+        },
+        {
+          "type": "PLUS",
+          "named": true
+        },
+        {
+          "type": "RBRACE",
+          "named": true
+        },
+        {
+          "type": "RBRACKET",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "SLASH",
+          "named": true
+        },
+        {
+          "type": "STAR",
+          "named": true
+        },
+        {
+          "type": "STRING",
+          "named": true
+        },
+        {
+          "type": "STRLEN",
+          "named": true
+        },
+        {
+          "type": "SUBSTR",
+          "named": true
+        },
+        {
+          "type": "SUM",
+          "named": true
+        },
+        {
+          "type": "TONUMBER",
+          "named": true
+        },
+        {
+          "type": "TOSTRING",
+          "named": true
+        },
+        {
+          "type": "UNDERSCORE",
+          "named": true
+        },
+        {
+          "type": "UTOF",
+          "named": true
+        },
+        {
+          "type": "UTOI",
+          "named": true
+        },
+        {
+          "type": "arg",
+          "named": true
+        },
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "non_empty_arg_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "atom",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "non_empty_arg_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "disjunction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comp_init",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "EQUALS",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "INSTANTIATE",
+          "named": true
+        },
+        {
+          "type": "comp_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "comp_type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "type_params",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "LBRACE",
+          "named": true
+        },
+        {
+          "type": "RBRACE",
+          "named": true
+        },
+        {
+          "type": "component_body",
+          "named": true
+        },
+        {
+          "type": "component_head",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_body",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "OVERRIDE",
+          "named": true
+        },
+        {
+          "type": "comp_init",
+          "named": true
+        },
+        {
+          "type": "component",
+          "named": true
+        },
+        {
+          "type": "fact",
+          "named": true
+        },
+        {
+          "type": "io_head",
+          "named": true
+        },
+        {
+          "type": "relation_decl",
+          "named": true
+        },
+        {
+          "type": "rule",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "component_head",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COLON",
+          "named": true
+        },
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "COMPONENT",
+          "named": true
+        },
+        {
+          "type": "comp_type",
+          "named": true
+        },
+        {
+          "type": "component_head",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "conjunction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "conjunction",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "constraint",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "EQUALS",
+          "named": true
+        },
+        {
+          "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "GE",
+          "named": true
+        },
+        {
+          "type": "GT",
+          "named": true
+        },
+        {
+          "type": "LE",
+          "named": true
+        },
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "LT",
+          "named": true
+        },
+        {
+          "type": "NE",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "TCONTAINS",
+          "named": true
+        },
+        {
+          "type": "TMATCH",
+          "named": true
+        },
+        {
+          "type": "TRUE",
+          "named": true
+        },
+        {
+          "type": "arg",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "define",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "disjunction",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "SEMICOLON",
+          "named": true
+        },
+        {
+          "type": "conjunction",
+          "named": true
+        },
+        {
+          "type": "disjunction",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exec_order_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "NUMBER",
+          "named": true
+        },
+        {
+          "type": "exec_order_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exec_plan",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "PLAN",
+          "named": true
+        },
+        {
+          "type": "exec_plan_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "exec_plan_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COLON",
+          "named": true
+        },
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "NUMBER",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "exec_order_list",
+          "named": true
+        },
+        {
+          "type": "exec_plan_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "fact",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "DOT",
+          "named": true
+        },
+        {
+          "type": "atom",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "functor_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COLON",
+          "named": true
+        },
+        {
+          "type": "FUNCTOR",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "non_empty_functor_arg_type_list",
+          "named": true
+        },
+        {
+          "type": "predefined_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "head",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "head",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "identifier",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "DOT",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "include",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "filename",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "io_directive_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "io_relation_list",
+          "named": true
+        },
+        {
+          "type": "non_empty_key_value_pairs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "io_head",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "INPUT_DECL",
+          "named": true
+        },
+        {
+          "type": "OUTPUT_DECL",
+          "named": true
+        },
+        {
+          "type": "PRINTSIZE_DECL",
+          "named": true
+        },
+        {
+          "type": "io_directive_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "io_relation_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "io_relation_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "kvp_value",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "FALSE",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "STRING",
+          "named": true
+        },
+        {
+          "type": "TRUE",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "line",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "NUMBER",
+          "named": true
+        },
+        {
+          "type": "filename",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_empty_arg_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "arg",
+          "named": true
+        },
+        {
+          "type": "non_empty_arg_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_empty_attributes",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COLON",
+          "named": true
+        },
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "non_empty_attributes",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_empty_functor_arg_type_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "non_empty_functor_arg_type_list",
+          "named": true
+        },
+        {
+          "type": "predefined_type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_empty_key_value_pairs",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "EQUALS",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "kvp_value",
+          "named": true
+        },
+        {
+          "type": "non_empty_key_value_pairs",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "non_empty_record_type_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COLON",
+          "named": true
+        },
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "non_empty_record_type_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "pragma",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "PRAGMA",
+          "named": true
+        },
+        {
+          "type": "STRING",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "predefined_type",
+    "named": true,
+    "fields": {}
+  },
+  {
+    "type": "relation_decl",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "DECL",
+          "named": true
+        },
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "non_empty_attributes",
+          "named": true
+        },
+        {
+          "type": "relation_list",
+          "named": true
+        },
+        {
+          "type": "relation_tags",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "relation_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "relation_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "relation_tags",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "BRIE_QUALIFIER",
+          "named": true
+        },
+        {
+          "type": "BTREE_QUALIFIER",
+          "named": true
+        },
+        {
+          "type": "EQREL_QUALIFIER",
+          "named": true
+        },
+        {
+          "type": "INLINE_QUALIFIER",
+          "named": true
+        },
+        {
+          "type": "INPUT_QUALIFIER",
+          "named": true
+        },
+        {
+          "type": "OUTPUT_QUALIFIER",
+          "named": true
+        },
+        {
+          "type": "OVERRIDABLE_QUALIFIER",
+          "named": true
+        },
+        {
+          "type": "PRINTSIZE_QUALIFIER",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rule",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "exec_plan",
+          "named": true
+        },
+        {
+          "type": "rule",
+          "named": true
+        },
+        {
+          "type": "rule_def",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "rule_def",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "DOT",
+          "named": true
+        },
+        {
+          "type": "IF",
+          "named": true
+        },
+        {
+          "type": "body",
+          "named": true
+        },
+        {
+          "type": "head",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "source_file",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": false,
+      "types": [
+        {
+          "type": "unit",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "term",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "EXCLAMATION",
+          "named": true
+        },
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
+          "type": "constraint",
+          "named": true
+        },
+        {
+          "type": "disjunction",
+          "named": true
+        },
+        {
+          "type": "term",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "EQUALS",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "LBRACKET",
+          "named": true
+        },
+        {
+          "type": "NUMBER_TYPE",
+          "named": true
+        },
+        {
+          "type": "RBRACKET",
+          "named": true
+        },
+        {
+          "type": "SUBTYPE",
+          "named": true
+        },
+        {
+          "type": "SYMBOL_TYPE",
+          "named": true
+        },
+        {
+          "type": "TYPE",
+          "named": true
+        },
+        {
+          "type": "non_empty_record_type_list",
+          "named": true
+        },
+        {
+          "type": "predefined_type",
+          "named": true
+        },
+        {
+          "type": "union_type_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_param_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "type_param_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "type_params",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "GT",
+          "named": true
+        },
+        {
+          "type": "LT",
+          "named": true
+        },
+        {
+          "type": "type_param_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "union_type_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "PIPE",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "union_type_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "unit",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "comp_init",
+          "named": true
+        },
+        {
+          "type": "component",
+          "named": true
+        },
+        {
+          "type": "define",
+          "named": true
+        },
+        {
+          "type": "fact",
+          "named": true
+        },
+        {
+          "type": "functor_decl",
+          "named": true
+        },
+        {
+          "type": "include",
+          "named": true
+        },
+        {
+          "type": "io_head",
+          "named": true
+        },
+        {
+          "type": "line",
+          "named": true
+        },
+        {
+          "type": "pragma",
+          "named": true
+        },
+        {
+          "type": "relation_decl",
+          "named": true
+        },
+        {
+          "type": "rule",
+          "named": true
+        },
+        {
+          "type": "type",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "\"",
+    "named": false
+  },
+  {
+    "type": "#define",
+    "named": false
+  },
+  {
+    "type": "#include",
+    "named": false
+  },
+  {
+    "type": "#line",
+    "named": false
+  },
+  {
+    "type": "AS",
+    "named": true
+  },
+  {
+    "type": "AT",
+    "named": true
+  },
+  {
+    "type": "BRIE_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "BTREE_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "BW_AND",
+    "named": true
+  },
+  {
+    "type": "BW_NOT",
+    "named": true
+  },
+  {
+    "type": "BW_OR",
+    "named": true
+  },
+  {
+    "type": "BW_SHIFT_L",
+    "named": true
+  },
+  {
+    "type": "BW_SHIFT_R",
+    "named": true
+  },
+  {
+    "type": "BW_SHIFT_R_UNSIGNED",
+    "named": true
+  },
+  {
+    "type": "BW_XOR",
+    "named": true
+  },
+  {
+    "type": "CARET",
+    "named": true
+  },
+  {
+    "type": "CAT",
+    "named": true
+  },
+  {
+    "type": "COLON",
+    "named": true
+  },
+  {
+    "type": "COMMA",
+    "named": true
+  },
+  {
+    "type": "COMPONENT",
+    "named": true
+  },
+  {
+    "type": "COUNT",
+    "named": true
+  },
+  {
+    "type": "DECL",
+    "named": true
+  },
+  {
+    "type": "DOLLAR",
+    "named": true
+  },
+  {
+    "type": "DOT",
+    "named": true
+  },
+  {
+    "type": "EQREL_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "EQUALS",
+    "named": true
+  },
+  {
+    "type": "EXCLAMATION",
+    "named": true
+  },
+  {
+    "type": "FALSE",
+    "named": true
+  },
+  {
+    "type": "FLOAT",
+    "named": true
+  },
+  {
+    "type": "FTOI",
+    "named": true
+  },
+  {
+    "type": "FTOU",
+    "named": true
+  },
+  {
+    "type": "FUNCTOR",
+    "named": true
+  },
+  {
+    "type": "GE",
+    "named": true
+  },
+  {
+    "type": "GT",
+    "named": true
+  },
+  {
+    "type": "IF",
+    "named": true
+  },
+  {
+    "type": "INLINE_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "INPUT_DECL",
+    "named": true
+  },
+  {
+    "type": "INPUT_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "INSTANTIATE",
+    "named": true
+  },
+  {
+    "type": "ITOF",
+    "named": true
+  },
+  {
+    "type": "ITOU",
+    "named": true
+  },
+  {
+    "type": "LBRACE",
+    "named": true
+  },
+  {
+    "type": "LBRACKET",
+    "named": true
+  },
+  {
+    "type": "LE",
+    "named": true
+  },
+  {
+    "type": "LPAREN",
+    "named": true
+  },
+  {
+    "type": "LT",
+    "named": true
+  },
+  {
+    "type": "L_AND",
+    "named": true
+  },
+  {
+    "type": "L_NOT",
+    "named": true
+  },
+  {
+    "type": "L_OR",
+    "named": true
+  },
+  {
+    "type": "MAX",
+    "named": true
+  },
+  {
+    "type": "MEAN",
+    "named": true
+  },
+  {
+    "type": "MIN",
+    "named": true
+  },
+  {
+    "type": "MINUS",
+    "named": true
+  },
+  {
+    "type": "NE",
+    "named": true
+  },
+  {
+    "type": "NIL",
+    "named": true
+  },
+  {
+    "type": "NUMBER_TYPE",
+    "named": true
+  },
+  {
+    "type": "ORD",
+    "named": true
+  },
+  {
+    "type": "OUTPUT_DECL",
+    "named": true
+  },
+  {
+    "type": "OUTPUT_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "OVERRIDABLE_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "OVERRIDE",
+    "named": true
+  },
+  {
+    "type": "PERCENT",
+    "named": true
+  },
+  {
+    "type": "PIPE",
+    "named": true
+  },
+  {
+    "type": "PLAN",
+    "named": true
+  },
+  {
+    "type": "PLUS",
+    "named": true
+  },
+  {
+    "type": "PRAGMA",
+    "named": true
+  },
+  {
+    "type": "PRINTSIZE_DECL",
+    "named": true
+  },
+  {
+    "type": "PRINTSIZE_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "RBRACE",
+    "named": true
+  },
+  {
+    "type": "RBRACKET",
+    "named": true
+  },
+  {
+    "type": "RPAREN",
+    "named": true
+  },
+  {
+    "type": "SEMICOLON",
+    "named": true
+  },
+  {
+    "type": "SLASH",
+    "named": true
+  },
+  {
+    "type": "STAR",
+    "named": true
+  },
+  {
+    "type": "STRING",
+    "named": true
+  },
+  {
+    "type": "STRLEN",
+    "named": true
+  },
+  {
+    "type": "SUBSTR",
+    "named": true
+  },
+  {
+    "type": "SUBTYPE",
+    "named": true
+  },
+  {
+    "type": "SUM",
+    "named": true
+  },
+  {
+    "type": "SYMBOL_TYPE",
+    "named": true
+  },
+  {
+    "type": "TCONTAINS",
+    "named": true
+  },
+  {
+    "type": "TMATCH",
+    "named": true
+  },
+  {
+    "type": "TONUMBER",
+    "named": true
+  },
+  {
+    "type": "TOSTRING",
+    "named": true
+  },
+  {
+    "type": "TRUE",
+    "named": true
+  },
+  {
+    "type": "TYPE",
+    "named": true
+  },
+  {
+    "type": "UNDERSCORE",
+    "named": true
+  },
+  {
+    "type": "UTOF",
+    "named": true
+  },
+  {
+    "type": "UTOI",
+    "named": true
+  },
+  {
+    "type": "filename",
+    "named": true
+  },
+  {
+    "type": "float",
+    "named": false
+  },
+  {
+    "type": "number",
+    "named": false
+  },
+  {
+    "type": "symbol",
+    "named": false
+  },
+  {
+    "type": "unsigned",
+    "named": false
+  }
+]
