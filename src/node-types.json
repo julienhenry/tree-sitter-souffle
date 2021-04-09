@@ -58,10 +58,6 @@
           "named": true
         },
         {
-          "type": "CAT",
-          "named": true
-        },
-        {
           "type": "COLON",
           "named": true
         },
@@ -82,23 +78,7 @@
           "named": true
         },
         {
-          "type": "FTOI",
-          "named": true
-        },
-        {
-          "type": "FTOU",
-          "named": true
-        },
-        {
           "type": "IDENT",
-          "named": true
-        },
-        {
-          "type": "ITOF",
-          "named": true
-        },
-        {
-          "type": "ITOU",
           "named": true
         },
         {
@@ -150,10 +130,6 @@
           "named": true
         },
         {
-          "type": "ORD",
-          "named": true
-        },
-        {
           "type": "PERCENT",
           "named": true
         },
@@ -186,35 +162,11 @@
           "named": true
         },
         {
-          "type": "STRLEN",
-          "named": true
-        },
-        {
-          "type": "SUBSTR",
-          "named": true
-        },
-        {
           "type": "SUM",
           "named": true
         },
         {
-          "type": "TONUMBER",
-          "named": true
-        },
-        {
-          "type": "TOSTRING",
-          "named": true
-        },
-        {
           "type": "UNDERSCORE",
-          "named": true
-        },
-        {
-          "type": "UTOF",
-          "named": true
-        },
-        {
-          "type": "UTOI",
           "named": true
         },
         {
@@ -227,6 +179,10 @@
         },
         {
           "type": "body",
+          "named": true
+        },
+        {
+          "type": "functor_built_in",
           "named": true
         },
         {
@@ -652,6 +608,53 @@
     }
   },
   {
+    "type": "functor_built_in",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": false,
+      "required": true,
+      "types": [
+        {
+          "type": "CAT",
+          "named": true
+        },
+        {
+          "type": "ORD",
+          "named": true
+        },
+        {
+          "type": "RANGE",
+          "named": true
+        },
+        {
+          "type": "STRLEN",
+          "named": true
+        },
+        {
+          "type": "SUBSTR",
+          "named": true
+        },
+        {
+          "type": "TOFLOAT",
+          "named": true
+        },
+        {
+          "type": "TONUMBER",
+          "named": true
+        },
+        {
+          "type": "TOSTRING",
+          "named": true
+        },
+        {
+          "type": "TOUNSIGNED",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "functor_decl",
     "named": true,
     "fields": {},
@@ -680,11 +683,11 @@
           "named": true
         },
         {
-          "type": "non_empty_functor_arg_type_list",
+          "type": "identifier",
           "named": true
         },
         {
-          "type": "predefined_type",
+          "type": "non_empty_attributes",
           "named": true
         }
       ]
@@ -1014,6 +1017,29 @@
     }
   },
   {
+    "type": "non_empty_sum_branch_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "PIPE",
+          "named": true
+        },
+        {
+          "type": "non_empty_sum_branch_list",
+          "named": true
+        },
+        {
+          "type": "sum_branch",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "pragma",
     "named": true,
     "fields": {},
@@ -1204,6 +1230,33 @@
     }
   },
   {
+    "type": "sum_branch",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "IDENT",
+          "named": true
+        },
+        {
+          "type": "LBRACE",
+          "named": true
+        },
+        {
+          "type": "RBRACE",
+          "named": true
+        },
+        {
+          "type": "non_empty_attributes",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "term",
     "named": true,
     "fields": {},
@@ -1284,6 +1337,10 @@
         },
         {
           "type": "non_empty_record_type_list",
+          "named": true
+        },
+        {
+          "type": "non_empty_sum_branch_list",
           "named": true
         },
         {
@@ -1371,9 +1428,17 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": false,
+      "multiple": true,
       "required": true,
       "types": [
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
         {
           "type": "comp_init",
           "named": true
@@ -1392,6 +1457,10 @@
         },
         {
           "type": "functor_decl",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         },
         {
@@ -1542,14 +1611,6 @@
     "named": true
   },
   {
-    "type": "FTOI",
-    "named": true
-  },
-  {
-    "type": "FTOU",
-    "named": true
-  },
-  {
     "type": "FUNCTOR",
     "named": true
   },
@@ -1570,6 +1631,10 @@
     "named": true
   },
   {
+    "type": "INPUT",
+    "named": false
+  },
+  {
     "type": "INPUT_DECL",
     "named": true
   },
@@ -1579,14 +1644,6 @@
   },
   {
     "type": "INSTANTIATE",
-    "named": true
-  },
-  {
-    "type": "ITOF",
-    "named": true
-  },
-  {
-    "type": "ITOU",
     "named": true
   },
   {
@@ -1654,6 +1711,10 @@
     "named": true
   },
   {
+    "type": "OUTPUT",
+    "named": false
+  },
+  {
     "type": "OUTPUT_DECL",
     "named": true
   },
@@ -1695,6 +1756,10 @@
   },
   {
     "type": "PRINTSIZE_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "RANGE",
     "named": true
   },
   {
@@ -1754,11 +1819,19 @@
     "named": true
   },
   {
+    "type": "TOFLOAT",
+    "named": true
+  },
+  {
     "type": "TONUMBER",
     "named": true
   },
   {
     "type": "TOSTRING",
+    "named": true
+  },
+  {
+    "type": "TOUNSIGNED",
     "named": true
   },
   {
@@ -1774,14 +1847,6 @@
     "named": true
   },
   {
-    "type": "UTOF",
-    "named": true
-  },
-  {
-    "type": "UTOI",
-    "named": true
-  },
-  {
     "type": "filename",
     "named": true
   },
@@ -1791,6 +1856,10 @@
   },
   {
     "type": "number",
+    "named": false
+  },
+  {
+    "type": "stateful",
     "named": false
   },
   {

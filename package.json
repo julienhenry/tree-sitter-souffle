@@ -13,7 +13,8 @@
   "repository": "https://github.com/julienhenry/tree-sitter-souffle",
   "license": "MIT",
   "dependencies": {
-    "nan": "^2.14.0"
+    "nan": "^2.14.0",
+    "process": "^0.11.10"
   },
   "devDependencies": {
     "tree-sitter": "0.16.1",

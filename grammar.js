@@ -42,6 +42,7 @@ module.exports = grammar({
       MEAN: $ => "mean",
       CAT: $ => "cat",
       ORD: $ => "ord",
+	  RANGE: $ => "range",
       STRLEN: $ => "strlen",
       SUBSTR: $ => "substr",
       TCONTAINS: $ => "contains",
@@ -64,6 +65,8 @@ module.exports = grammar({
       FALSE: $ => "false",
       TOSTRING: $ => "to_string",
       TONUMBER: $ => "to_number",
+	  TOFLOAT: $ => "to_float",
+	  TOUNSIGNED: $ => "to_unsigned",
       PLAN: $ => ".plan",
       PIPE: $ => "|",
       LBRACKET: $ => "[",
@@ -121,7 +124,7 @@ module.exports = grammar({
         $.pragma,
         $.include,
         $.line,
-        $.define
+        $.define,
       ),
 
       // http://stackoverflow.com/questions/13014947/regex-to-match-a-c-style-multiline-comment/36328890#36328890
@@ -151,7 +154,7 @@ module.exports = grammar({
 
       define: $ => seq(
         "#define",
-        /(.*\\\n)+[^\n]*/
+        /[^\r\n]*/
       ),
 
       filename: $ => /[^"]*/,
@@ -169,8 +172,14 @@ module.exports = grammar({
         seq($.TYPE, $.IDENT, $.EQUALS, $.union_type_list),
         seq($.TYPE, $.IDENT, $.EQUALS, $.LBRACKET, $.RBRACKET),
         seq($.TYPE, $.IDENT, $.EQUALS, $.LBRACKET, $.non_empty_record_type_list, $.RBRACKET),
+        seq($.TYPE, $.IDENT, $.EQUALS, $.non_empty_sum_branch_list),
       ),
 
+      non_empty_sum_branch_list : $ => choice(
+        $.sum_branch,
+        //seq($.non_empty_sum_branch_list, $.PIPE, $.sum_branch),
+        seq($.sum_branch, $.PIPE, $.non_empty_sum_branch_list),
+      ),
 
       non_empty_record_type_list : $ => choice(
         seq($.IDENT, $.COLON, $.identifier),
@@ -181,6 +190,9 @@ module.exports = grammar({
         $.identifier,
         seq($.union_type_list, $.PIPE, $.identifier)
       ),
+
+	  sum_branch : $ =>
+		seq($.IDENT, $.LBRACE, optional($.non_empty_attributes), $.RBRACE),
 
       relation_decl: $ => choice(
         seq($.DECL, $.relation_list, $.LPAREN, $.RPAREN, optional($.relation_tags)),
@@ -284,7 +296,10 @@ module.exports = grammar({
         seq($.AS, $.LPAREN, $.arg, $.COMMA, $.identifier, $.RPAREN),
         $.NIL,
         seq($.LBRACKET, optional($.non_empty_arg_list), $.RBRACKET),
+		seq($.DOLLAR, $.IDENT, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
+		seq($.DOLLAR, $.IDENT),
         seq($.AT, $.IDENT, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
+        seq($.functor_built_in, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
         //seq($.MINUS, $.arg, prec(1,$.NEG)), TODO
         prec.left(choice(
         seq($.arg, $.PLUS, $.arg),
@@ -303,21 +318,9 @@ module.exports = grammar({
         )),
         prec(2,seq($.BW_NOT, $.arg)),
         prec(2,seq($.L_NOT, $.arg)),
-        seq($.ORD, $.LPAREN, $.arg, $.RPAREN),
-        seq($.STRLEN, $.LPAREN, $.arg, $.RPAREN),
-        seq($.TONUMBER, $.LPAREN, $.arg, $.RPAREN),
-        seq($.TOSTRING, $.LPAREN, $.arg, $.RPAREN),
-        seq($.ITOU, $.LPAREN, $.arg, $.RPAREN),
-        seq($.ITOF, $.LPAREN, $.arg, $.RPAREN),
-        seq($.UTOI, $.LPAREN, $.arg, $.RPAREN),
-        seq($.UTOF, $.LPAREN, $.arg, $.RPAREN),
-        seq($.FTOI, $.LPAREN, $.arg, $.RPAREN),
-        seq($.FTOU, $.LPAREN, $.arg, $.RPAREN),
         prec.right(seq($.arg, $.CARET, $.arg)),
         seq($.MAX, $.LPAREN, $.arg, $.COMMA, $.non_empty_arg_list, $.RPAREN),
         seq($.MIN, $.LPAREN, $.arg, $.COMMA, $.non_empty_arg_list, $.RPAREN),
-        seq($.CAT, $.LPAREN, $.arg, $.COMMA, $.non_empty_arg_list, $.RPAREN),
-        seq($.SUBSTR, $.LPAREN, $.arg, $.COMMA, $.arg, $.COMMA, $.arg, $.RPAREN),
         seq($.MEAN, $.arg, $.COLON, $.atom),
         seq($.MEAN, $.arg, $.COLON, $.LBRACE, $.body, $.RBRACE),
         seq($.COUNT, $.COLON, $.atom),
@@ -329,6 +332,18 @@ module.exports = grammar({
         seq($.MAX, $.arg, $.COLON, $.atom),
         seq($.MAX, $.arg, $.COLON, $.LBRACE, $.body, $.RBRACE),
       ),
+
+	  functor_built_in: $ => choice(
+		$.CAT,
+		$.ORD,
+		$.RANGE,
+		$.STRLEN,
+		$.SUBSTR,
+		$.TOFLOAT,
+		$.TONUMBER,
+		$.TOSTRING,
+		$.TOUNSIGNED,
+	  ),
 
       component: $ => seq($.component_head, $.LBRACE, optional(repeat1($.component_body)), $.RBRACE),
 
@@ -360,7 +375,7 @@ module.exports = grammar({
 
       comp_init: $ => seq($.INSTANTIATE, $.IDENT, $.EQUALS, $.comp_type),
 
-      functor_decl: $ => seq($.FUNCTOR, $.IDENT, $.LPAREN, optional($.non_empty_functor_arg_type_list), $.RPAREN, $.COLON, $.predefined_type),
+      functor_decl: $ => seq($.FUNCTOR, $.IDENT, $.LPAREN, optional($.non_empty_attributes), $.RPAREN, $.COLON, $.identifier, optional("stateful")),
 
       non_empty_functor_arg_type_list: $ => choice(
         $.predefined_type,

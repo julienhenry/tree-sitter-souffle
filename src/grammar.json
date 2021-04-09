@@ -136,6 +136,10 @@
       "type": "STRING",
       "value": "ord"
     },
+    "RANGE": {
+      "type": "STRING",
+      "value": "range"
+    },
     "STRLEN": {
       "type": "STRING",
       "value": "strlen"
@@ -223,6 +227,14 @@
     "TONUMBER": {
       "type": "STRING",
       "value": "to_number"
+    },
+    "TOFLOAT": {
+      "type": "STRING",
+      "value": "to_float"
+    },
+    "TOUNSIGNED": {
+      "type": "STRING",
+      "value": "to_unsigned"
     },
     "PLAN": {
       "type": "STRING",
@@ -353,6 +365,10 @@
         }
       ]
     },
+    "word": {
+      "type": "SYMBOL",
+      "name": "IDENT"
+    },
     "NUMBER": {
       "type": "CHOICE",
       "members": [
@@ -428,6 +444,48 @@
         {
           "type": "SYMBOL",
           "name": "define"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "OUTPUT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "LPAREN"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "RPAREN"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "INPUT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "LPAREN"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "RPAREN"
+            }
+          ]
         }
       ]
     },
@@ -524,7 +582,7 @@
         },
         {
           "type": "PATTERN",
-          "value": "(.*\\\\\\n)+[^\\n]*"
+          "value": "[^\\r\\n]*"
         }
       ]
     },
@@ -695,6 +753,53 @@
               "name": "RBRACKET"
             }
           ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "TYPE"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "IDENT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "EQUALS"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "non_empty_sum_branch_list"
+            }
+          ]
+        }
+      ]
+    },
+    "non_empty_sum_branch_list": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "sum_branch"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "sum_branch"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "PIPE"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "non_empty_sum_branch_list"
+            }
+          ]
         }
       ]
     },
@@ -768,6 +873,35 @@
               "name": "identifier"
             }
           ]
+        }
+      ]
+    },
+    "sum_branch": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "IDENT"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "LBRACE"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "non_empty_attributes"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "RBRACE"
         }
       ]
     },
@@ -1593,11 +1727,86 @@
           "members": [
             {
               "type": "SYMBOL",
+              "name": "DOLLAR"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "IDENT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "LPAREN"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "non_empty_arg_list"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "RPAREN"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "DOLLAR"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "IDENT"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
               "name": "AT"
             },
             {
               "type": "SYMBOL",
               "name": "IDENT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "LPAREN"
+            },
+            {
+              "type": "CHOICE",
+              "members": [
+                {
+                  "type": "SYMBOL",
+                  "name": "non_empty_arg_list"
+                },
+                {
+                  "type": "BLANK"
+                }
+              ]
+            },
+            {
+              "type": "SYMBOL",
+              "name": "RPAREN"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "functor_built_in"
             },
             {
               "type": "SYMBOL",
@@ -1886,216 +2095,6 @@
           }
         },
         {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "ORD"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "STRLEN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "TONUMBER"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "TOSTRING"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "ITOU"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "ITOF"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "UTOI"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "UTOF"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "FTOI"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "FTOU"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
           "type": "PREC_RIGHT",
           "value": 0,
           "content": {
@@ -2179,72 +2178,6 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "CAT"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "COMMA"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "non_empty_arg_list"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "SUBSTR"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "COMMA"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "COMMA"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "arg"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
               "name": "MEAN"
             },
             {
@@ -2481,6 +2414,47 @@
               "name": "RBRACE"
             }
           ]
+        }
+      ]
+    },
+    "functor_built_in": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "CAT"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "ORD"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "RANGE"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "STRLEN"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "SUBSTR"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "TOFLOAT"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "TONUMBER"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "TOSTRING"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "TOUNSIGNED"
         }
       ]
     },
@@ -2719,7 +2693,7 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "non_empty_functor_arg_type_list"
+              "name": "non_empty_attributes"
             },
             {
               "type": "BLANK"
@@ -2736,7 +2710,19 @@
         },
         {
           "type": "SYMBOL",
-          "name": "predefined_type"
+          "name": "identifier"
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "STRING",
+              "value": "stateful"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
         }
       ]
     },
