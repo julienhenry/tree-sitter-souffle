@@ -365,10 +365,6 @@
         }
       ]
     },
-    "word": {
-      "type": "SYMBOL",
-      "name": "IDENT"
-    },
     "NUMBER": {
       "type": "CHOICE",
       "members": [
@@ -444,48 +440,6 @@
         {
           "type": "SYMBOL",
           "name": "define"
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "OUTPUT"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "identifier"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "STRING",
-              "value": "INPUT"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "LPAREN"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "identifier"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "RPAREN"
-            }
-          ]
         }
       ]
     },

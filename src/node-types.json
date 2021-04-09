@@ -1428,17 +1428,9 @@
     "named": true,
     "fields": {},
     "children": {
-      "multiple": true,
+      "multiple": false,
       "required": true,
       "types": [
-        {
-          "type": "LPAREN",
-          "named": true
-        },
-        {
-          "type": "RPAREN",
-          "named": true
-        },
         {
           "type": "comp_init",
           "named": true
@@ -1457,10 +1449,6 @@
         },
         {
           "type": "functor_decl",
-          "named": true
-        },
-        {
-          "type": "identifier",
           "named": true
         },
         {
@@ -1631,10 +1619,6 @@
     "named": true
   },
   {
-    "type": "INPUT",
-    "named": false
-  },
-  {
     "type": "INPUT_DECL",
     "named": true
   },
@@ -1709,10 +1693,6 @@
   {
     "type": "ORD",
     "named": true
-  },
-  {
-    "type": "OUTPUT",
-    "named": false
   },
   {
     "type": "OUTPUT_DECL",
