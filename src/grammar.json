@@ -352,6 +352,52 @@
       "type": "STRING",
       "value": ":-"
     },
+    "INPUT": {
+      "type": "STRING",
+      "value": "INPUT"
+    },
+    "OUTPUT": {
+      "type": "STRING",
+      "value": "OUTPUT"
+    },
+    "CPP_VAR": {
+      "type": "PATTERN",
+      "value": "CPP_[A-Z]*"
+    },
+    "io_macro": {
+      "type": "SEQ",
+      "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "INPUT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "OUTPUT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "CPP_VAR"
+            }
+          ]
+        },
+        {
+          "type": "SYMBOL",
+          "name": "LPAREN"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SYMBOL",
+          "name": "RPAREN"
+        }
+      ]
+    },
     "IDENT": {
       "type": "CHOICE",
       "members": [
@@ -393,6 +439,10 @@
     "unit": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "io_macro"
+        },
         {
           "type": "SYMBOL",
           "name": "type"
@@ -590,7 +640,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "predefined_type"
+              "name": "IDENT"
             }
           ]
         },
@@ -2563,6 +2613,10 @@
     "component_body": {
       "type": "CHOICE",
       "members": [
+        {
+          "type": "SYMBOL",
+          "name": "io_macro"
+        },
         {
           "type": "SYMBOL",
           "name": "type"

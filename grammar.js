@@ -97,6 +97,17 @@ module.exports = grammar({
       GT: $ => ">",
       IF: $ => ":-",
 
+	  INPUT: $ => 'INPUT',
+	  OUTPUT: $ => 'OUTPUT',
+	  CPP_VAR: $ => /CPP_[A-Z]*/,
+
+	  io_macro: $ => seq(
+		choice($.INPUT, $.OUTPUT, $.CPP_VAR),
+		$.LPAREN,
+		$.identifier,
+		$.RPAREN,
+	  ),
+
       IDENT: $ => choice(
         /[?a-zA-Z]/, 
         /[_?a-zA-Z][_?a-zA-Z\d]+/, 
@@ -113,6 +124,7 @@ module.exports = grammar({
       STRING: $ => /"[^"]*"/,
 
       unit: $ => choice(
+		$.io_macro,
         $.type,
         $.functor_decl,
         $.relation_decl,
@@ -165,7 +177,7 @@ module.exports = grammar({
       ),
 
       type: $ => choice(
-        seq($.TYPE, $.IDENT, $.SUBTYPE, $.predefined_type),
+        seq($.TYPE, $.IDENT, $.SUBTYPE, $.IDENT),
         seq($.NUMBER_TYPE, $.IDENT),
         seq($.SYMBOL_TYPE, $.IDENT),
         seq($.TYPE, $.IDENT),
@@ -363,6 +375,7 @@ module.exports = grammar({
       ),
 
       component_body: $ => choice(
+		$.io_macro,
         $.type,
         $.relation_decl,
         $.io_head,

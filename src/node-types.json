@@ -344,6 +344,10 @@
           "named": true
         },
         {
+          "type": "io_macro",
+          "named": true
+        },
+        {
           "type": "relation_decl",
           "named": true
         },
@@ -803,6 +807,41 @@
         },
         {
           "type": "io_directive_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "io_macro",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "CPP_VAR",
+          "named": true
+        },
+        {
+          "type": "INPUT",
+          "named": true
+        },
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "OUTPUT",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "identifier",
           "named": true
         }
       ]
@@ -1344,10 +1383,6 @@
           "named": true
         },
         {
-          "type": "predefined_type",
-          "named": true
-        },
-        {
           "type": "union_type_list",
           "named": true
         }
@@ -1460,6 +1495,10 @@
           "named": true
         },
         {
+          "type": "io_macro",
+          "named": true
+        },
+        {
           "type": "line",
           "named": true
         },
@@ -1567,6 +1606,10 @@
     "named": true
   },
   {
+    "type": "CPP_VAR",
+    "named": true
+  },
+  {
     "type": "DECL",
     "named": true
   },
@@ -1616,6 +1659,10 @@
   },
   {
     "type": "INLINE_QUALIFIER",
+    "named": true
+  },
+  {
+    "type": "INPUT",
     "named": true
   },
   {
@@ -1692,6 +1739,10 @@
   },
   {
     "type": "ORD",
+    "named": true
+  },
+  {
+    "type": "OUTPUT",
     "named": true
   },
   {
