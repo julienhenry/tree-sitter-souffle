@@ -244,7 +244,7 @@ module.exports = grammar({
 
       rule_def: $ => choice(
         seq($.head, $.IF, $.body, $.DOT),
-        seq($.LEQ_RULE, $.atom, $.LT, $.atom, $.IF, $.body, $.DOT)
+        seq($.LEQ_RULE, $.atom, $.LE, $.atom, $.IF, $.body, $.DOT)
       ),
 
       head: $ => choice(

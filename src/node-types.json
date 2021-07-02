@@ -1247,11 +1247,11 @@
           "named": true
         },
         {
-          "type": "LEQ_RULE",
+          "type": "LE",
           "named": true
         },
         {
-          "type": "LT",
+          "type": "LEQ_RULE",
           "named": true
         },
         {

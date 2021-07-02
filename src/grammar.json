@@ -1181,7 +1181,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "LT"
+              "name": "LE"
             },
             {
               "type": "SYMBOL",
