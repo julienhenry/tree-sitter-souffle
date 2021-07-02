@@ -184,6 +184,14 @@
       "type": "STRING",
       "value": "btree"
     },
+    "BTREE_DELETE_QUALIFIER": {
+      "type": "STRING",
+      "value": "btree_delete"
+    },
+    "LEQ_RULE": {
+      "type": "STRING",
+      "value": ".leq"
+    },
     "MIN": {
       "type": "STRING",
       "value": "min"
@@ -1092,6 +1100,10 @@
           },
           {
             "type": "SYMBOL",
+            "name": "BTREE_DELETE_QUALIFIER"
+          },
+          {
+            "type": "SYMBOL",
             "name": "EQREL_QUALIFIER"
           }
         ]
@@ -1135,6 +1147,18 @@
     "rule_def": {
       "type": "SEQ",
       "members": [
+        {
+          "type": "CHOICE",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "LEQ_RULE"
+            },
+            {
+              "type": "BLANK"
+            }
+          ]
+        },
         {
           "type": "SYMBOL",
           "name": "head"

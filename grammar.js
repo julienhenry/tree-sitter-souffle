@@ -54,6 +54,8 @@ module.exports = grammar({
       INLINE_QUALIFIER: $ => "inline",
       BRIE_QUALIFIER: $ => "brie",
       BTREE_QUALIFIER: $ => "btree",
+      BTREE_DELETE_QUALIFIER: $ => "btree_delete",
+      LEQ_RULE: $ => ".leq",
       MIN: $ => "min",
       MAX: $ => "max",
       AS: $ => "as",
@@ -229,6 +231,7 @@ module.exports = grammar({
         $.INLINE_QUALIFIER,
         $.BRIE_QUALIFIER,
         $.BTREE_QUALIFIER,
+        $.BTREE_DELETE_QUALIFIER,
         $.EQREL_QUALIFIER,
       )),
 
@@ -239,7 +242,7 @@ module.exports = grammar({
         seq($.rule, $.exec_plan)
       ),
 
-      rule_def: $ => seq($.head, $.IF, $.body, $.DOT),
+      rule_def: $ => seq(optional($.LEQ_RULE), $.head, $.IF, $.body, $.DOT),
 
       head: $ => choice(
         $.atom,
