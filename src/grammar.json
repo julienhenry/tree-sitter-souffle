@@ -1145,35 +1145,61 @@
       ]
     },
     "rule_def": {
-      "type": "SEQ",
+      "type": "CHOICE",
       "members": [
         {
-          "type": "CHOICE",
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "head"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "IF"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "body"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "DOT"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
           "members": [
             {
               "type": "SYMBOL",
               "name": "LEQ_RULE"
             },
             {
-              "type": "BLANK"
+              "type": "SYMBOL",
+              "name": "atom"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "LT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "atom"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "IF"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "body"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "DOT"
             }
           ]
-        },
-        {
-          "type": "SYMBOL",
-          "name": "head"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "IF"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "body"
-        },
-        {
-          "type": "SYMBOL",
-          "name": "DOT"
         }
       ]
     },

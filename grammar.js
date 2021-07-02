@@ -242,7 +242,10 @@ module.exports = grammar({
         seq($.rule, $.exec_plan)
       ),
 
-      rule_def: $ => seq(optional($.LEQ_RULE), $.head, $.IF, $.body, $.DOT),
+      rule_def: $ => choice(
+        seq($.head, $.IF, $.body, $.DOT),
+        seq($.LEQ_RULE, $.atom, $.LT, $.atom, $.IF, $.body, $.DOT)
+      ),
 
       head: $ => choice(
         $.atom,

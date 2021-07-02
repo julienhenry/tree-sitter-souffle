@@ -1251,6 +1251,14 @@
           "named": true
         },
         {
+          "type": "LT",
+          "named": true
+        },
+        {
+          "type": "atom",
+          "named": true
+        },
+        {
           "type": "body",
           "named": true
         },
