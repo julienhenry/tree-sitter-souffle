@@ -111,8 +111,10 @@ module.exports = grammar({
 	  ),
 
       IDENT: $ => choice(
+        /\+underscore_\d+/,
+        /@generator_\d+/,
         /[?a-zA-Z]/, 
-        /[_?a-zA-Z][_?a-zA-Z\d]+/, 
+        /[_?a-zA-Z][_?a-zA-Z\d]+/,
       ),
 
       NUMBER: $ => choice(
@@ -150,6 +152,10 @@ module.exports = grammar({
           '/'
         )
       )),
+
+      LOC: $ => token(
+        seq('.loc ', /(\\(.|\r?\n)|[^\\\n])*/),
+      ),
 
       include: $ => seq(
         "#include",
@@ -237,10 +243,7 @@ module.exports = grammar({
 
       fact: $ => seq($.atom, $.DOT),
 
-      rule: $ => choice(
-        $.rule_def,
-        seq($.rule, $.exec_plan)
-      ),
+      rule: $ => seq($.rule_def, optional($.exec_plan), optional($.LOC)),
 
       rule_def: $ => choice(
         seq($.head, $.IF, $.body, $.DOT),
@@ -318,8 +321,9 @@ module.exports = grammar({
 		seq($.DOLLAR, $.IDENT),
         seq($.AT, $.IDENT, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
         seq($.functor_built_in, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
-        //seq($.MINUS, $.arg, prec(1,$.NEG)), TODO
+        //seq($.MINUS, $.arg, prec(1,$.NEG)),
         prec.left(choice(
+        seq($.MINUS, $.arg),
         seq($.arg, $.PLUS, $.arg),
         seq($.arg, $.MINUS, $.arg),
         seq($.arg, $.STAR, $.arg),

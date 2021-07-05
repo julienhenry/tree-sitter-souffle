@@ -411,6 +411,14 @@
       "members": [
         {
           "type": "PATTERN",
+          "value": "\\+underscore_\\d+"
+        },
+        {
+          "type": "PATTERN",
+          "value": "@generator_\\d+"
+        },
+        {
+          "type": "PATTERN",
           "value": "[?a-zA-Z]"
         },
         {
@@ -535,6 +543,22 @@
                 "value": "/"
               }
             ]
+          }
+        ]
+      }
+    },
+    "LOC": {
+      "type": "TOKEN",
+      "content": {
+        "type": "SEQ",
+        "members": [
+          {
+            "type": "STRING",
+            "value": ".loc "
+          },
+          {
+            "type": "PATTERN",
+            "value": "(\\\\(.|\\r?\\n)|[^\\\\\\n])*"
           }
         ]
       }
@@ -1123,22 +1147,33 @@
       ]
     },
     "rule": {
-      "type": "CHOICE",
+      "type": "SEQ",
       "members": [
         {
           "type": "SYMBOL",
           "name": "rule_def"
         },
         {
-          "type": "SEQ",
+          "type": "CHOICE",
           "members": [
             {
               "type": "SYMBOL",
-              "name": "rule"
+              "name": "exec_plan"
             },
             {
+              "type": "BLANK"
+            }
+          ]
+        },
+        {
+          "type": "CHOICE",
+          "members": [
+            {
               "type": "SYMBOL",
-              "name": "exec_plan"
+              "name": "LOC"
+            },
+            {
+              "type": "BLANK"
             }
           ]
         }
@@ -1890,6 +1925,19 @@
           "content": {
             "type": "CHOICE",
             "members": [
+              {
+                "type": "SEQ",
+                "members": [
+                  {
+                    "type": "SYMBOL",
+                    "name": "MINUS"
+                  },
+                  {
+                    "type": "SYMBOL",
+                    "name": "arg"
+                  }
+                ]
+              },
               {
                 "type": "SEQ",
                 "members": [

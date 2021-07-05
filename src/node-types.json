@@ -1216,11 +1216,11 @@
       "required": true,
       "types": [
         {
-          "type": "exec_plan",
+          "type": "LOC",
           "named": true
         },
         {
-          "type": "rule",
+          "type": "exec_plan",
           "named": true
         },
         {
@@ -1711,6 +1711,10 @@
   },
   {
     "type": "LEQ_RULE",
+    "named": true
+  },
+  {
+    "type": "LOC",
     "named": true
   },
   {
