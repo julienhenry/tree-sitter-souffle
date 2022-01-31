@@ -188,10 +188,6 @@
       "type": "STRING",
       "value": "btree_delete"
     },
-    "LEQ_RULE": {
-      "type": "STRING",
-      "value": ".leq"
-    },
     "MIN": {
       "type": "STRING",
       "value": "min"
@@ -1208,10 +1204,6 @@
           "members": [
             {
               "type": "SYMBOL",
-              "name": "LEQ_RULE"
-            },
-            {
-              "type": "SYMBOL",
               "name": "atom"
             },
             {
@@ -1337,6 +1329,32 @@
       "type": "CHOICE",
       "members": [
         {
+          "type": "SYMBOL",
+          "name": "plan_item"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "plan_item"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "COMMA"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "exec_plan_list"
+            }
+          ]
+        }
+      ]
+    },
+    "plan_item": {
+      "type": "CHOICE",
+      "members": [
+        {
           "type": "SEQ",
           "members": [
             {
@@ -1373,16 +1391,33 @@
           "type": "SEQ",
           "members": [
             {
-              "type": "SYMBOL",
-              "name": "exec_plan_list"
+              "type": "STRING",
+              "value": "sips"
             },
             {
               "type": "SYMBOL",
-              "name": "COMMA"
+              "name": "COLON"
             },
             {
               "type": "SYMBOL",
-              "name": "NUMBER"
+              "name": "STRING"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "LPAREN"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier_list"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "RPAREN"
             },
             {
               "type": "SYMBOL",
@@ -1407,6 +1442,66 @@
             {
               "type": "SYMBOL",
               "name": "RPAREN"
+            }
+          ]
+        }
+      ]
+    },
+    "identifier_list": {
+      "type": "CHOICE",
+      "members": [
+        {
+          "type": "SYMBOL",
+          "name": "identifier"
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "AT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "COMMA"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier_list"
+            }
+          ]
+        },
+        {
+          "type": "SEQ",
+          "members": [
+            {
+              "type": "SYMBOL",
+              "name": "AT"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "COMMA"
+            },
+            {
+              "type": "SYMBOL",
+              "name": "identifier_list"
             }
           ]
         }
@@ -1820,7 +1915,7 @@
             },
             {
               "type": "SYMBOL",
-              "name": "IDENT"
+              "name": "identifier"
             },
             {
               "type": "SYMBOL",
@@ -1841,19 +1936,6 @@
             {
               "type": "SYMBOL",
               "name": "RPAREN"
-            }
-          ]
-        },
-        {
-          "type": "SEQ",
-          "members": [
-            {
-              "type": "SYMBOL",
-              "name": "DOLLAR"
-            },
-            {
-              "type": "SYMBOL",
-              "name": "IDENT"
             }
           ]
         },

@@ -55,7 +55,6 @@ module.exports = grammar({
       BRIE_QUALIFIER: $ => "brie",
       BTREE_QUALIFIER: $ => "btree",
       BTREE_DELETE_QUALIFIER: $ => "btree_delete",
-      LEQ_RULE: $ => ".leq",
       MIN: $ => "min",
       MAX: $ => "max",
       AS: $ => "as",
@@ -247,7 +246,7 @@ module.exports = grammar({
 
       rule_def: $ => choice(
         seq($.head, $.IF, $.body, $.DOT),
-        seq($.LEQ_RULE, $.atom, $.LE, $.atom, $.IF, $.body, $.DOT)
+        seq($.atom, $.LE, $.atom, $.IF, $.body, $.DOT)
       ),
 
       head: $ => choice(
@@ -270,8 +269,21 @@ module.exports = grammar({
       exec_plan: $ => seq($.PLAN, $.exec_plan_list),
 
       exec_plan_list: $ => choice(
+        $.plan_item,
+        seq($.plan_item, $.COMMA, $.exec_plan_list)
+      ),
+
+      plan_item: $ => choice(
         seq($.NUMBER, $.COLON, $.LPAREN, optional($.exec_order_list), $.RPAREN),
-        seq($.exec_plan_list, $.COMMA, $.NUMBER, $.COLON, $.LPAREN, optional($.exec_order_list), $.RPAREN)
+        seq("sips", $.COLON, $.STRING),
+        seq($.LPAREN, $.identifier_list, $.RPAREN, $.COLON, $.LPAREN, optional($.exec_order_list), $.RPAREN),
+      ),
+
+      identifier_list : $ => choice(
+        $.identifier,
+        seq($.AT, $.identifier),
+        seq($.identifier, $.COMMA, $.identifier_list),
+        seq($.AT, $.identifier, $.COMMA, $.identifier_list)
       ),
 
       exec_order_list: $ => choice(
@@ -317,8 +329,8 @@ module.exports = grammar({
         seq($.AS, $.LPAREN, $.arg, $.COMMA, $.identifier, $.RPAREN),
         $.NIL,
         seq($.LBRACKET, optional($.non_empty_arg_list), $.RBRACKET),
-		seq($.DOLLAR, $.IDENT, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
-		seq($.DOLLAR, $.IDENT),
+        seq($.DOLLAR, $.identifier, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
+        //seq($.DOLLAR, $.identifier),
         seq($.AT, $.IDENT, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
         seq($.functor_built_in, $.LPAREN, optional($.non_empty_arg_list), $.RPAREN),
         //seq($.MINUS, $.arg, prec(1,$.NEG)),

@@ -562,31 +562,15 @@
       "required": true,
       "types": [
         {
-          "type": "COLON",
-          "named": true
-        },
-        {
           "type": "COMMA",
           "named": true
         },
         {
-          "type": "LPAREN",
-          "named": true
-        },
-        {
-          "type": "NUMBER",
-          "named": true
-        },
-        {
-          "type": "RPAREN",
-          "named": true
-        },
-        {
-          "type": "exec_order_list",
-          "named": true
-        },
-        {
           "type": "exec_plan_list",
+          "named": true
+        },
+        {
+          "type": "plan_item",
           "named": true
         }
       ]
@@ -738,6 +722,33 @@
         },
         {
           "type": "identifier",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
+    "type": "identifier_list",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "AT",
+          "named": true
+        },
+        {
+          "type": "COMMA",
+          "named": true
+        },
+        {
+          "type": "identifier",
+          "named": true
+        },
+        {
+          "type": "identifier_list",
           "named": true
         }
       ]
@@ -1079,6 +1090,45 @@
     }
   },
   {
+    "type": "plan_item",
+    "named": true,
+    "fields": {},
+    "children": {
+      "multiple": true,
+      "required": true,
+      "types": [
+        {
+          "type": "COLON",
+          "named": true
+        },
+        {
+          "type": "LPAREN",
+          "named": true
+        },
+        {
+          "type": "NUMBER",
+          "named": true
+        },
+        {
+          "type": "RPAREN",
+          "named": true
+        },
+        {
+          "type": "STRING",
+          "named": true
+        },
+        {
+          "type": "exec_order_list",
+          "named": true
+        },
+        {
+          "type": "identifier_list",
+          "named": true
+        }
+      ]
+    }
+  },
+  {
     "type": "pragma",
     "named": true,
     "fields": {},
@@ -1248,10 +1298,6 @@
         },
         {
           "type": "LE",
-          "named": true
-        },
-        {
-          "type": "LEQ_RULE",
           "named": true
         },
         {
@@ -1710,10 +1756,6 @@
     "named": true
   },
   {
-    "type": "LEQ_RULE",
-    "named": true
-  },
-  {
     "type": "LOC",
     "named": true
   },
@@ -1915,6 +1957,10 @@
   },
   {
     "type": "number",
+    "named": false
+  },
+  {
+    "type": "sips",
     "named": false
   },
   {
